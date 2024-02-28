@@ -21,3 +21,12 @@ body {
   margin-bottom: 60px;
 }
 
+.main-sidebar {
+    background-color: #006666;
+}
+
+.navbar-nav .nav-link {
+    font-weight: bold;
+    font-size: 20px;
+}
+

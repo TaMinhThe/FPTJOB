@@ -17,12 +17,18 @@ namespace FPTJOB.Models
 
         public string Requirement { get; set; }
 
-        public string Deadline { get; set; }
+        public DateTime Deadline { get; set; }
 
-        [ForeignKey("CategoryId")]
-        [DisplayName("Category")]
+        //[ForeignKey("CategoryId")]
+        //[DisplayName("Category")]
+        //public int CategoryId { get; set; }
+
+        //public virtual Category? Category { get; set; }
+
         public int CategoryId { get; set; }
-
-        public virtual Category? Category { get; set; }
+        [ForeignKey("CategoryId")]
+        public virtual Category? ObjCategory { get; set; }
+        [InverseProperty("ObjJob")]
+        public virtual ICollection<ApplyJob>? ApplyJobs { get; set; }
     }
 }

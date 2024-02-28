@@ -21,9 +21,17 @@ namespace FPTJOB.Controllers
         // GET: Jobs
         public async Task<IActionResult> Index()
         {
-            var dBMyContext = _context.Job.Include(j => j.Category);
+            var dBMyContext = _context.Job.Include(j => j.ObjCategory);
             return View(await dBMyContext.ToListAsync());
         }
+
+        public async Task<IActionResult> ListJob()
+        {
+            var dBMyContext = _context.Job.Include(j => j.ObjCategory).Where(j => j.Deadline >= DateTime.Now);
+            return View(await dBMyContext.ToListAsync());
+        }
+
+
 
         // GET: Jobs/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -34,7 +42,7 @@ namespace FPTJOB.Controllers
             }
 
             var job = await _context.Job
-                .Include(j => j.Category)
+                .Include(j => j.ObjCategory)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (job == null)
             {
@@ -131,7 +139,7 @@ namespace FPTJOB.Controllers
             }
 
             var job = await _context.Job
-                .Include(j => j.Category)
+                .Include(j => j.ObjCategory)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (job == null)
             {

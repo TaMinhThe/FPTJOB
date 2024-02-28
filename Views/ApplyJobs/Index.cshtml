@@ -1,35 +1,26 @@
-﻿@model IEnumerable<FPTJOB.Models.Category>
+﻿@model IEnumerable<FPTJOB.Models.ApplyJob>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<center>
-    <h1>  <i> <u> Create Categories </u> </i> </h1>
- </center>
+<h1> <center> <i> <u> Apply Job </u> </i> </center> </h1>
 
-<br />
-<br />
-<div class="card">
-    <div class="card-header">
-        <h3 class="card-title">DataTable with default features</h3>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body">
 <p>
-
     <a asp-action="Create">Create New</a>
 </p>
-<table id="example1" class="table table-bordered table-striped">
-
+<table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.RegDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Status)
+                @Html.DisplayNameFor(model => model.ObjProfile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ObjJob)
             </th>
             <th></th>
         </tr>
@@ -38,10 +29,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.RegDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
+                @Html.DisplayFor(modelItem => item.ObjProfile.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ObjJob.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
@@ -52,5 +46,3 @@
 }
     </tbody>
 </table>
-    </div>
-</div>

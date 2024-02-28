@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FPTJOB.Models
 {
@@ -11,6 +12,8 @@ namespace FPTJOB.Models
 
         public bool Status { get; set; }
 
-        public virtual ICollection<Job>? Jobs { get;}
+        [InverseProperty("ObjCategory")]
+        public virtual ICollection<Job>? ObjJobs { get; set; }
+
     }
 }

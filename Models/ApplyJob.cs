@@ -1,23 +1,23 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FPTJOB.Models
 {
     public class ApplyJob
     {
+        [Key]
         public int Id { get; set; }
- 
+        public DateTime RegDate { get; set; }
 
         [ForeignKey("ProfileId")]
-        [DisplayName("Profile")]
         public int ProfileId { get; set; }
 
-        public virtual Profile? Profile { get; set; }
+        public virtual Profile? ObjProfile { get; set; }
 
         [ForeignKey("JobId")]
-        [DisplayName("Job")]
         public int JobId { get; set; }
 
-        public virtual Job? Job { get; set; }
+        public virtual Job? ObjJob { get; set; }
     }
 }

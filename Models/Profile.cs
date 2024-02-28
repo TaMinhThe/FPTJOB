@@ -17,5 +17,8 @@ namespace FPTJOB.Models
 
         [NotMapped] // không đánh dấu vào cơ sở dữ liệu
         public IFormFile ImageFile { get; set; }
+
+        [InverseProperty("ObjProfile")]
+        public virtual ICollection<ApplyJob>? ApplyJobs { get; set; }
     }
 }

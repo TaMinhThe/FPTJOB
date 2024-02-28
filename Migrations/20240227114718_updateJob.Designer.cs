@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FPTJOB.Migrations
 {
     [DbContext(typeof(DBMyContext))]
-    [Migration("20240223090354_createProfile")]
-    partial class createProfile
+    [Migration("20240227114718_updateJob")]
+    partial class updateJob
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -104,9 +104,8 @@ namespace FPTJOB.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Deadline")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Deadline")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()
