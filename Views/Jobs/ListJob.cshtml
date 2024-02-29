@@ -4,10 +4,13 @@
     ViewData["Title"] = "ListJob";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1> <center> <i> <u> List Job </u> </i> </center> </h1>
-
-
+<div class="card card-secondary">
+    <div class="card-header">
+<center>
+<h1>  <i> <u> List Job </u> </i> </> </h1>
+</center>
+    </div>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -35,11 +38,13 @@
                 @Html.DisplayFor(modelItem => item.Deadline)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ObjCategory.Id)
+                @Html.DisplayFor(modelItem => item.ObjCategory.Name)
             </td>
             <td>
 @*                 <a asp-action="Edit" asp-route-id="@item.Id">Apply</a> |
+
  *@                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+
 @*                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
  *@            </td>
         </tr>

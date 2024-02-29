@@ -4,60 +4,62 @@
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1>Details</h1>
-
-<div>
-    <h4>Job</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Industry)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Industry)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Requirement)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Requirement)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Deadline)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Deadline)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ObjCategory)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ObjCategory.Id)
-        </dd>
-    </dl>
-</div>
-<div>
-    <div>
-        <button style="margin: 20px;" class="btn btn-primary" asp-action="Create" asp-controller="ApplyJobs" asp-route-id="@Model?.Id">Apply</button> 
-        <a class ="btn btn-danger" asp-action="Index">Back to List</a>
+<div class="card card-secondary">
+    <div class="card-header">
+        <center>
+            <h1><u><i>Details Job</i></u></h1>
+        </center>
     </div>
 </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-8">
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Industry)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Industry)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Location)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Location)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Description)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Description)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Requirement)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Requirement)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Deadline)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Deadline)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.ObjCategory)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.ObjCategory.Name)
+                    </dd>
+                </dl>
+                <a class="btn btn-primary" asp-action="Create" asp-controller="ApplyJobs" asp-route-id="@Model?.Id">Apply</a>
+                <a class="btn btn-danger" asp-action="Index">Back to List</a>
+            </div>
+        </div>
+    </div>

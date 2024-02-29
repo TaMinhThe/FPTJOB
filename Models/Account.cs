@@ -7,7 +7,7 @@
         public string email { get; set; }
         public string password { get; set; }
 
-        public ICollection<Profile>Profiles { get; set; }
+        public ICollection<Profile>? Profiles { get; set; }
 
     }
 }
