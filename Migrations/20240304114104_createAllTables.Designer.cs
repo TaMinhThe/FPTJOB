@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FPTJOB.Migrations
 {
     [DbContext(typeof(DBMyContext))]
-    [Migration("20240227114718_updateJob")]
-    partial class updateJob
+    [Migration("20240304114104_createAllTables")]
+    partial class createAllTables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,6 +63,9 @@ namespace FPTJOB.Migrations
 
                     b.Property<int>("ProfileId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("RegDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -380,32 +383,32 @@ namespace FPTJOB.Migrations
 
             modelBuilder.Entity("FPTJOB.Models.ApplyJob", b =>
                 {
-                    b.HasOne("FPTJOB.Models.Job", "Job")
-                        .WithMany()
+                    b.HasOne("FPTJOB.Models.Job", "ObjJob")
+                        .WithMany("ApplyJobs")
                         .HasForeignKey("JobId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FPTJOB.Models.Profile", "Profile")
-                        .WithMany()
+                    b.HasOne("FPTJOB.Models.Profile", "ObjProfile")
+                        .WithMany("ApplyJobs")
                         .HasForeignKey("ProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Job");
+                    b.Navigation("ObjJob");
 
-                    b.Navigation("Profile");
+                    b.Navigation("ObjProfile");
                 });
 
             modelBuilder.Entity("FPTJOB.Models.Job", b =>
                 {
-                    b.HasOne("FPTJOB.Models.Category", "Category")
-                        .WithMany("Jobs")
+                    b.HasOne("FPTJOB.Models.Category", "ObjCategory")
+                        .WithMany("ObjJobs")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Category");
+                    b.Navigation("ObjCategory");
                 });
 
             modelBuilder.Entity("FPTJOB.Models.Profile", b =>
@@ -473,7 +476,17 @@ namespace FPTJOB.Migrations
 
             modelBuilder.Entity("FPTJOB.Models.Category", b =>
                 {
-                    b.Navigation("Jobs");
+                    b.Navigation("ObjJobs");
+                });
+
+            modelBuilder.Entity("FPTJOB.Models.Job", b =>
+                {
+                    b.Navigation("ApplyJobs");
+                });
+
+            modelBuilder.Entity("FPTJOB.Models.Profile", b =>
+                {
+                    b.Navigation("ApplyJobs");
                 });
 #pragma warning restore 612, 618
         }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FPTJOB.Migrations
 {
     /// <inheritdoc />
-    public partial class updateJob : Migration
+    public partial class createAllTables : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -240,6 +240,7 @@ namespace FPTJOB.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    RegDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ProfileId = table.Column<int>(type: "int", nullable: false),
                     JobId = table.Column<int>(type: "int", nullable: false)
                 },
