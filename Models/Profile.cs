@@ -8,7 +8,9 @@ namespace FPTJOB.Models
     {
         [Key]
         public int Id { get; set; }
+        [DisplayName("Id")]
         public string UserId { get; set; }
+        [DisplayName("Name")]
         public string FullName { get; set; }
         public string Address {  get; set; } 
         public string Skill {  get; set; }
