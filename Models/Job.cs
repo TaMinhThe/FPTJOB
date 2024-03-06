@@ -25,9 +25,12 @@ namespace FPTJOB.Models
 
         //public virtual Category? Category { get; set; }
 
-        public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
+        public int CategoryId { get; set; }
+        [DisplayName("Category")]
+
         public virtual Category? ObjCategory { get; set; }
+
         [InverseProperty("ObjJob")]
         public virtual ICollection<ApplyJob>? ApplyJobs { get; set; }
     }

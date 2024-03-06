@@ -13,9 +13,11 @@ namespace FPTJOB.Models
         public string Address {  get; set; } 
         public string Skill {  get; set; }
         public string Education {  get; set; }
+
+        [DisplayName("CV")]
         public string MyFile { get; set; }
 
-        [NotMapped] // không đánh dấu vào cơ sở dữ liệu
+        [NotMapped] 
         public IFormFile ImageFile { get; set; }
 
         [InverseProperty("ObjProfile")]
