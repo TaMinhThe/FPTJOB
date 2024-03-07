@@ -165,6 +165,23 @@ namespace FPTJOB.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        [Authorize(Roles ="Admin")]
+        public async Task<IActionResult> Approved(int id)
+        {
+            if (_context.Categories == null)
+            {
+                return Problem("Entity set 'DBMyContext.Categories'  is null.");
+            }
+            var category = await _context.Categories.FindAsync(id);
+            if (category != null)
+            {
+                category.Status = true;
+                _context.Categories.Update(category);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
 
         private bool CategoryExists(int id)
         {
