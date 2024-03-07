@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FPTJOB.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FPTJOB.Controllers
 {
@@ -53,6 +54,7 @@ namespace FPTJOB.Controllers
         }
 
         // GET: Jobs/Create
+        [Authorize(Roles ="Admin,Employer")]
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
@@ -78,6 +80,8 @@ namespace FPTJOB.Controllers
         }
 
         // GET: Jobs/Edit/5
+        [Authorize(Roles = "Admin,Employer")]
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Job == null)
@@ -131,6 +135,8 @@ namespace FPTJOB.Controllers
         }
 
         // GET: Jobs/Delete/5
+        [Authorize(Roles = "Admin, Employer")]
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Job == null)
@@ -150,6 +156,8 @@ namespace FPTJOB.Controllers
         }
 
         // POST: Jobs/Delete/5
+        [Authorize(Roles = "Admin, Employer")]
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

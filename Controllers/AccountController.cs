@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace FPTJOB.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class AccountController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
