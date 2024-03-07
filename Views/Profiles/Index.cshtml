@@ -3,15 +3,14 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div class="card card-secondary">
-    <div class="card-header">
-<center>
-<h1>  <i> <u>  Profiles </u> </i>  </h1>
-</center>
+<div style="padding-top: 20px;" class="col-md-12">
+
+    <div style="text-align: center;">
+        <h1 style="font-weight: bold; font-size: 50px; text-decoration: none; margin-bottom: 0; color: #f2721e;">Profile</h1>
     </div>
+
 </div>
-<br />
-<br />
+
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -41,32 +40,51 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Skill)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Education)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MyFile)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Skill)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Education)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MyFile)
+                </td>
+                <td>
+                    <style>
+                        .icon-container {
+                            text-align: center;
+                        }
+
+                            .icon-container a {
+                                display: inline-block;
+                                margin-left: 50px;
+                            }
+                    </style>
+                    <div class="icon-container">
+                        <a asp-action="Edit" asp-route-id="@item.Id">
+                            <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true" style="color: #024fa0;"></i>
+                        </a>&nbsp;&nbsp;
+                        <a asp-action="Details" asp-route-id="@item.Id">
+                            <i class="fa fa-eye fa-2x" aria-hidden="true" style="color: #f2721e;"></i>
+                        </a>&nbsp;&nbsp;
+                        <a asp-action="Delete" asp-route-id="@item.Id">
+                            <i class="fa fa-trash fa-2x" aria-hidden="true" style="color: #50b846;"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

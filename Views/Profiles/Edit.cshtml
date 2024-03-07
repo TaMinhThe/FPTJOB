@@ -5,52 +5,62 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <div class="card card-secondary">
-        <div class="card-header">
-            <center><h1><u><i>Edit Profile</i></u></h1></center>
-        </div>
-    </div>
+<div style="padding-top: 20px;" class="col-md-12">
 
-<div class="d-flex justify-content-center align-items-center">
-    <div class="col-md-4">
-        <form asp-action="Edit" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <input asp-for="UserId" class="form-control"
-                       value="@ViewBag.UserId" />
-                <span asp-validation-for="UserId" class="text-danger"></span>
+    <div class="card card-secondary">
+        <div style="padding-top: 20px;">
+            <div style="text-align: center;">
+                <h1 style="font-weight: bold; font-size: 50px; text-decoration: none; margin-bottom: 0; color: #f2721e;">Edit Profile</h1>
             </div>
-            <div class="form-group">
-                <label asp-for="FullName" class="control-label"></label>
-                <input asp-for="FullName" class="form-control" />
-                <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+
+
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="col-md-4">
+                <form asp-action="Edit" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="UserId" class="control-label"></label>
+                        <input asp-for="UserId" class="form-control"
+                               value="@ViewBag.UserId" />
+                        <span asp-validation-for="UserId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FullName" class="control-label"></label>
+                        <input asp-for="FullName" class="form-control" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address" class="control-label"></label>
+                        <input asp-for="Address" class="form-control" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Skill" class="control-label"></label>
+                        <input asp-for="Skill" class="form-control" />
+                        <span asp-validation-for="Skill" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Education" class="control-label"></label>
+                        <input asp-for="Education" class="form-control" />
+                        <span asp-validation-for="Education" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="ImageFile">Choose an image</label>
+                        <input type="file" name="ImageFile" class="form-control-file" />
+                    </div>
+                    <div style="display: flex; justify-content: center;">
+                        <div style="margin: 40px;">
+                            <input type="submit" value="Save" class="btn btn-primary" />
+                        </div>
+                        <div style="margin: 40px;">
+                            <a class="btn btn-danger" asp-action="Index">Back to List</a>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Skill" class="control-label"></label>
-                <input asp-for="Skill" class="form-control" />
-                <span asp-validation-for="Skill" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Education" class="control-label"></label>
-                <input asp-for="Education" class="form-control" />
-                <span asp-validation-for="Education" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label for="ImageFile">Choose an image</label>
-                <input type="file" name="ImageFile" class="form-control-file" />
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" style="margin: 20px;" />
-                <a class="btn btn-danger" asp-action="Index">Back to List</a>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 

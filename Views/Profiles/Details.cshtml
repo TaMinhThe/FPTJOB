@@ -5,55 +5,66 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <div class="card card-secondary">
-        <div class="card-header">
-            <center><h1><u><i>Detail Profile</i></u></h1></center>
-        </div>
-    </div>
+<div style="padding-top: 30px;" class="col-md-12">
+    <div class="card card-primary">
 
-<div class="d-flex justify-content-center align-items-center">
-    <div>
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.UserId)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.UserId)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.FullName)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.FullName)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Address)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Address)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Skill)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Skill)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Education)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Education)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.MyFile)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.MyFile)
-            </dd>
-        </dl>
-        <div>
-            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> 
-            <a class="btn btn-danger" asp-action="Index">Back to List</a>
+        <div style="padding-top: 20px;">
+            <div style="text-align: center;">
+                <h1 style="font-weight: bold; font-size: 50px; text-decoration: none; margin-bottom: 0; color: #f2721e;">Profile Detail</h1>
+            </div>
+        </div>
+        <div style="padding-top: 20px;" class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-8">
+                    <dl class="row">
+
+                        <dt class="col-sm-4" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayNameFor(model => model.UserId)
+                        </dt>
+                        <dd class="col-sm-8" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayFor(model => model.UserId)
+                        </dd>
+                        <dt class="col-sm-4" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayNameFor(model => model.FullName)
+                        </dt>
+                        <dd class="col-sm-8" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayFor(model => model.FullName)
+                        </dd>
+                        <dt class="col-sm-4" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayNameFor(model => model.Address)
+                        </dt>
+                        <dd class="col-sm-8" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayFor(model => model.Address)
+                        </dd>
+                        <dt class="col-sm-4" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayNameFor(model => model.Skill)
+                        </dt>
+                        <dd class="col-sm-8" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayFor(model => model.Skill)
+                        </dd>
+                        <dt class="col-sm-4" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayNameFor(model => model.Education)
+                        </dt>
+                        <dd class="col-sm-8" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayFor(model => model.Education)
+                        </dd>
+                        <dt class="col-sm-4" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayNameFor(model => model.MyFile)
+                        </dt>
+                        <dd class="col-sm-8" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px; padding-bottom: 5px;">
+                            @Html.DisplayFor(model => model.MyFile)
+                        </dd>
+                    </dl>
+                    <div class="d-flex justify-content-center align-items-center" style="margin-top: 20px; margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: center; align-items: center;">
+                            <a class="btn btn-primary" style="margin: 20px;" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+                            <div style="width: 10px;"></div>
+                            <a class="btn btn-danger" asp-action="Index">Back to List</a>
+                            <div style="width: 10px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
