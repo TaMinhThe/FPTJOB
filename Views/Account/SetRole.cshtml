@@ -1,11 +1,11 @@
 ﻿@model List<string>
 @{
     ViewData["Title"] = "Set Role";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>@ViewData["Title"]</h2>
 
-<form asp-action="SetRole" method="post" style="border: 1px solid #ccc; padding: 20px; border-radius: 5px;">
+<form asp-action="SetRole" method="post">
     <label for="userId">User:</label>
     <select id="userId" name="userId">
         @foreach (var userId in Model)
