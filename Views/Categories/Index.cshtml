@@ -4,52 +4,66 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="card card-secondary">
-    <div class="card-header">
-<center>
-    <h1>  <i> <u> Categories </u> </i> </h1>
- </center>
+<div style="padding-top: 20px;">
+    <div style="text-align: center;">
+        <h1 style="font-weight: bold; font-size: 50px; text-decoration: none; margin-bottom: 0; color: #f2721e;">Categories</h1>
     </div>
 </div>
-<br />
-<br />
-<div class="card">
- 
-    <!-- /.card-header -->
-    <div class="card-body">
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table id="example1" class="table table-bordered table-striped">
 
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-    </div>
+<!-- /.card-header -->
+<div class="card-body">
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table id="example1" class="table table-bordered table-striped">
+
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <style>
+                        .icon-container {
+                            text-align: center;
+                        }
+
+                            .icon-container a {
+                                display: inline-block;
+                                margin-left: 50px;
+                            }
+                    </style>
+
+                    <td>
+                        <div class="icon-container">
+                            <a asp-action="Edit" asp-route-id="@item.Id">
+                                <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true" style="color: #024fa0;"></i>
+                            </a>
+                            <a asp-action="Details" asp-route-id="@item.Id">
+                                <i class="fa fa-eye fa-2x" aria-hidden="true" style="color: #f2721e;"></i>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.Id">
+                                <i class="fa fa-trash fa-2x" aria-hidden="true" style="color: #50b846;"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
