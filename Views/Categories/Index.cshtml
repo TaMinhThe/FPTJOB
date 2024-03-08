@@ -57,7 +57,7 @@
 
                     <td>
                                 <div class="icon-container">
-                                    <a asp-action="Approved" asp-route-id="@item.Id" onclick="confirmApproved(event)">
+                                    <a asp-action="Approved" asp-route-id="@item.Id">
                                         <i class="fa fa-hand-pointer-o fa-2x" aria-hidden="true" style="color: #024fa0;"></i>
                                     </a>
                                     <a asp-action="Edit" asp-route-id="@item.Id">
@@ -78,16 +78,3 @@
         </div>
     </div>
 </div>
-<script>
-    function confirmApproved(event) {
-        event.preventDefault(); // Ngăn chặn hành động mặc định của liên kết
-
-        var result = confirm("Are you sure you want to approve ? ");
-        if (result) {
-            // Chuyển hướng đến hành động "Approved"
-            window.location.href = event.target.parentNode.href;
-        }
-    }
-</script>
-
-

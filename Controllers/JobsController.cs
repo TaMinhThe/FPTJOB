@@ -49,7 +49,17 @@ namespace FPTJOB.Controllers
             {
                 return NotFound();
             }
+            var applyJob = _context.ApplyJobs.Include(P => P.ObjProfile).Where(p => p.JobId == id);
+            var profile = _context.Profiles.Where(p => p.UserId == User.Identity.Name).FirstOrDefault();
 
+            if (applyJob.Where(p => p.ProfileId == profile.Id).Count() > 0 && applyJob.Count() > 0)
+            {
+                ViewBag.Apply = true;
+            }
+            else
+            {
+                ViewBag.Apply = false;
+            }
             return View(job);
         }
 
@@ -81,7 +91,6 @@ namespace FPTJOB.Controllers
 
         // GET: Jobs/Edit/5
         [Authorize(Roles = "Admin,Employer")]
-
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Job == null)
@@ -156,8 +165,6 @@ namespace FPTJOB.Controllers
         }
 
         // POST: Jobs/Delete/5
-        [Authorize(Roles = "Admin, Employer")]
-
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

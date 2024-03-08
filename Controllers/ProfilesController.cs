@@ -48,6 +48,7 @@ namespace FPTJOB.Controllers
             return View(profile);
         }
 
+
         // GET: Profiles/Create
         public IActionResult Create()
         {
@@ -173,7 +174,6 @@ namespace FPTJOB.Controllers
         }
 
         // POST: Profiles/Delete/5
-        [Authorize(Roles = "Admin")]
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

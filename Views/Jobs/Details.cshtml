@@ -58,8 +58,13 @@
                         @Html.DisplayFor(model => model.ObjCategory.Name)
                     </dd>
                 </dl>
-                <a class="btn btn-primary" asp-action="Create" asp-controller="ApplyJobs" asp-route-id="@Model?.Id">Apply</a>
-                <a class="btn btn-danger" asp-action="Index">Back to List</a>
+
+            @if (ViewBag.Apply == false)
+            {
+                <a class="btn btn-sm btn-info" asp-action="Create" asp-controller="ApplyJobs" asp-route-id="@Model?.Id">Apply</a>
+            }
+            <div>
+                <a class="btn btn-primary" asp-action="ListJob">Back to List</a>
             </div>
         </div>
     </div>

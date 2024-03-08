@@ -53,8 +53,6 @@ namespace FPTJOB.Controllers
         }
 
         // POST: Categories/Create
-        [Authorize(Roles = "Employer")]
-
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -89,8 +87,6 @@ namespace FPTJOB.Controllers
         }
 
         // POST: Categories/Edit/5
-        [Authorize(Roles = "Admin")]
-
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -146,8 +142,6 @@ namespace FPTJOB.Controllers
         }
 
         // POST: Categories/Delete/5
-        [Authorize(Roles = "Admin")]
-
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -165,7 +159,10 @@ namespace FPTJOB.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        [Authorize(Roles ="Admin")]
+
+
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Approved(int id)
         {
             if (_context.Categories == null)
@@ -182,6 +179,7 @@ namespace FPTJOB.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
 
         private bool CategoryExists(int id)
         {
