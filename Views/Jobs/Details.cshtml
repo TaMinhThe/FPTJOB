@@ -4,67 +4,67 @@
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="card card-secondary">
-    <div class="card-header">
-        <center>
-            <h1><u><i>Details Job</i></u></h1>
-        </center>
-    </div>
-</div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-sm-8">
-                <dl class="row">
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.Name)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Name)
-                    </dd>
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.Industry)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Industry)
-                    </dd>
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.Location)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Location)
-                    </dd>
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.Description)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Description)
-                    </dd>
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.Requirement)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Requirement)
-                    </dd>
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.Deadline)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Deadline)
-                    </dd>
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.ObjCategory)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.ObjCategory.Name)
-                    </dd>
-                </dl>
+<div style="padding-top: 30px;" class="col-md-12">
+    <div class="card card-primary">
 
-            @if (ViewBag.Apply == false)
-            {
-                <a class="btn btn-sm btn-info" asp-action="Create" asp-controller="ApplyJobs" asp-route-id="@Model?.Id">Apply</a>
-            }
-            <div>
-                <a class="btn btn-primary" asp-action="ListJob">Back to List</a>
+        <div style="padding-top: 20px;">
+            <div style="text-align: center;">
+                <h1 style="font-weight: bold; font-size: 50px; text-decoration: none; margin-bottom: 0; color: #f2721e;">Detail Job</h1>
+            </div>
+        </div>
+        <div style="padding-top: 20px;" class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-8">
+                    <dl class="row">
+                        <dt class="col-sm-4" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+                        <dd class="col-sm-8" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+                        <dt class="col-sm-4" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayNameFor(model => model.Industry)
+                        </dt>
+                        <dd class="col-sm-8" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayFor(model => model.Industry)
+                        </dd>
+                        <dt class="col-sm-4" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayNameFor(model => model.Location)
+                        </dt>
+                        <dd class="col-sm-8" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayFor(model => model.Location)
+                        </dd>
+                        <dt class="col-sm-4" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayNameFor(model => model.Description)
+                        </dt>
+                        <dd class="col-sm-8" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayFor(model => model.Description)
+                        </dd>
+                        <dt class="col-sm-4" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayNameFor(model => model.Requirement)
+                        </dt>
+                        <dd class="col-sm-8" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayFor(model => model.Requirement)
+                        </dd>
+                        <dt class="col-sm-4" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px;padding-bottom: 5px;">
+                            @Html.DisplayNameFor(model => model.Deadline)
+                        </dt>
+                        <dd class="col-sm-8" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px; padding-bottom: 5px;">
+                            @Html.DisplayFor(model => model.Deadline)
+                        </dd>
+                        <dt class="col-sm-4" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px; padding-bottom: 5px;">
+                            @Html.DisplayNameFor(model => model.ObjCategory)
+                        </dt>
+                        <dd class="col-sm-8" style="border-bottom: 1px solid #E3E1D9; margin-bottom: 30px; padding-bottom: 5px;">
+                            @Html.DisplayFor(model => model.ObjCategory.Name)
+                        </dd>
+                    </dl>
+                    <div style="padding-bottom: 20px;" class="d-flex justify-content-center">
+                        <a class="btn btn-primary mr-2" asp-action="Create" asp-controller="ApplyJobs" asp-route-id="@Model?.Id">Apply</a>
+                        <a class="btn btn-danger" asp-action="Index">Back to List</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
