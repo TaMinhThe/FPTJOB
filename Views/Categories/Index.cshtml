@@ -4,6 +4,10 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<div style="padding-top: 20px;" class="col-md-12">
+    <!-- general form elements -->
+<div class="card card-primary">
 <div style="padding-top: 20px;">
     <div style="text-align: center;">
         <h1 style="font-weight: bold; font-size: 50px; text-decoration: none; margin-bottom: 0; color: #f2721e;">Categories</h1>
@@ -13,7 +17,9 @@
 <!-- /.card-header -->
 <div class="card-body">
     <p>
-        <a asp-action="Create">Create New</a>
+                <a asp-action="Create">
+                    <button type="button" class="btn btn-outline-primary">Create New</button>
+                </a>
     </p>
     <table id="example1" class="table table-bordered table-striped">
 
@@ -50,23 +56,38 @@
                     </style>
 
                     <td>
-                        <div class="icon-container">
-                            <form method="post" asp-action="Approved" asp-route-id="@item.Id" onsubmit="return confirm('Are you sure you want to Approve this item?');">
-                                <button type="submit" class="btn btn-danger">Approved</button>
-                            </form>
-                            <a asp-action="Edit" asp-route-id="@item.Id">
-                                <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true" style="color: #024fa0;"></i>
-                            </a>
-                            <a asp-action="Details" asp-route-id="@item.Id">
-                                <i class="fa fa-eye fa-2x" aria-hidden="true" style="color: #f2721e;"></i>
-                            </a>
-                            <a asp-action="Delete" asp-route-id="@item.Id">
-                                <i class="fa fa-trash fa-2x" aria-hidden="true" style="color: #50b846;"></i>
-                            </a>
-                        </div>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+                                <div class="icon-container">
+                                    <a asp-action="Approved" asp-route-id="@item.Id" onclick="confirmApproved(event)">
+                                        <i class="fa fa-hand-pointer-o fa-2x" aria-hidden="true" style="color: #024fa0;"></i>
+                                    </a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id">
+                                        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true" style="color: #f2721e;"></i>
+                                    </a>
+                                    <a asp-action="Details" asp-route-id="@item.Id">
+                                        <i class="fa fa-eye fa-2x" aria-hidden="true" style="color: #50b846;"></i>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id">
+                                        <i class="fa fa-trash fa-2x" aria-hidden="true" style="color: #024fa0;"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+<script>
+    function confirmApproved(event) {
+        event.preventDefault(); // Ngăn chặn hành động mặc định của liên kết
+
+        var result = confirm("Are you sure you want to approve ? ");
+        if (result) {
+            // Chuyển hướng đến hành động "Approved"
+            window.location.href = event.target.parentNode.href;
+        }
+    }
+</script>
+
+
