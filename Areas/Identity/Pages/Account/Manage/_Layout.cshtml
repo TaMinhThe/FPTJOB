@@ -9,12 +9,14 @@
     }
 }
 
-<h1>Manage your account</h1>
+<div style="text-align: center;">
+    <h1 style="font-weight: bold; font-size: 50px; text-decoration: none; margin-bottom: 0; color: #000000;">Manage Account</h1>
+</div>
 
+<div class="card card-primary">
+    <div class="card-body">
 <div>
-    <h2>Change your account settings</h2>
-    <hr />
-    <div class="row">
+    <div class="row" style="top: 30px;">
         <div class="col-md-3">
             <partial name="_ManageNav" />
         </div>
@@ -22,6 +24,8 @@
             @RenderBody()
         </div>
     </div>
+</div>
+</div>
 </div>
 
 @section Scripts {
