@@ -3,23 +3,33 @@
     ViewData["Title"] = "Set Role";
 }
 
-<h2>@ViewData["Title"]</h2>
+<div style="text-align: center;">
+    <h1 style="font-weight: bold; font-size: 50px; text-decoration: none; margin-bottom: 0; color: #f2721e;">SetRole</h1>
+</div>
+<div class="card card-primary">
+    <div class="card-body">
+        <form asp-action="SetRole" method="post">
+            <div class="form-group">
+                <label for="userId">User:</label>
+                <select id="userId" name="userId" class="form-control">
+                    @foreach (var userId in Model)
+                    {
+                        <option value="@userId">@userId</option>
+                    }
+                </select>
+            </div>
 
-<form asp-action="SetRole" method="post">
-    <label for="userId">User:</label>
-    <select id="userId" name="userId">
-        @foreach (var userId in Model)
-        {
-            <option value="@userId">@userId</option>
-        }
-    </select>
-
-    <label for="role">Role:</label>
-    <select id="role" name="role">
-        <option value="Admin">Admin</option>
-        <option value="Employer">Employer</option>
-        <option value="Seeker">Seeker</option>
-    </select>
-
-    <button type="submit">Set role</button>
-</form>
+            <div class="form-group">
+                <label for="role">Role:</label>
+                <select id="role" name="role" class="form-control">
+                    <option value="Admin">Admin</option>
+                    <option value="Employer">Employer</option>
+                    <option value="Seeker">Seeker</option>
+                </select>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Set role</button>
+            </div>
+        </form>
+    </div>
+</div>

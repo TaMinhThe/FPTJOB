@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FPTJOB.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
 
     public class AdminController : Controller
     {

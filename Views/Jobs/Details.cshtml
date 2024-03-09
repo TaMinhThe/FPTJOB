@@ -60,8 +60,12 @@
                         </dd>
                     </dl>
                     <div style="padding-bottom: 20px;" class="d-flex justify-content-center">
-                        <a class="btn btn-primary mr-2" asp-action="Create" asp-controller="ApplyJobs" asp-route-id="@Model?.Id">Apply</a>
+                        @if (ViewBag.Apply == false)
+                        {
+                            <a class="btn btn-primary mr-2" asp-action="Create" asp-controller="ApplyJobs" asp-route-id="@Model?.Id">Apply</a>
+                        }
                         <a class="btn btn-danger" asp-action="Index">Back to List</a>
+                       
                     </div>
                 </div>
             </div>

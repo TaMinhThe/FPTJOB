@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FPTJOB.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class AccountController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
