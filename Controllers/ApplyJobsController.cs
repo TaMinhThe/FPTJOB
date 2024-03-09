@@ -78,6 +78,7 @@ namespace FPTJOB.Controllers
         }
 
         // GET: ApplyJobs/Edit/5
+              [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.ApplyJobs == null)

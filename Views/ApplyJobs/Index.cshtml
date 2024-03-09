@@ -4,19 +4,20 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="card card-secondary">
-    <div class="card-header">
-        <center><h1>  <i> <u> Apply Job </u> </i> </h1></center>
-    </div>
-</div>
-<p>
-    <a asp-action="Create">
-        <button type="button" class="btn btn-outline-primary">Create New</button>
-    </a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
+<div style="padding-top: 20px;" class="col-md-12">
+    <!-- general form elements -->
+    <div class="card card-primary">
+        <div style="padding-top: 20px;" class="col-md-12">
+
+            <div style="text-align: center;">
+                <h1 style="font-weight: bold; font-size: 50px; text-decoration: none; margin-bottom: 0; color: #f2721e;">Apply Job</h1>
+            </div>
+
+        </div>
+
+        <table style="padding-top: 20px;" class="table">
+        <thead>
+            <tr>
             <th>
                 @Html.DisplayNameFor(model => model.RegDate)
             </th>
@@ -42,11 +43,31 @@
                 @Html.DisplayFor(modelItem => item.ObjJob.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <style>
+                        .icon-container {
+                            text-align: center;
+                        }
+
+                            .icon-container a {
+                                display: inline-block;
+                                margin-left: 50px;
+                            }
+                    </style>
+                    <div class="icon-container">
+                    <a asp-action="Edit" asp-route-id="@item.Id">
+                        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true" style="color: #024fa0;"></i>
+                    </a>&nbsp;&nbsp;
+                    <a asp-action="Details" asp-route-id="@item.Id">
+                        <i class="fa fa-eye fa-2x" aria-hidden="true" style="color: #f2721e;"></i>
+                    </a>&nbsp;&nbsp;
+                    <a asp-action="Delete" asp-route-id="@item.Id">
+                        <i class="fa fa-trash fa-2x" aria-hidden="true" style="color: #50b846;"></i>
+                    </a>
+                    </div>
             </td>
-        </tr>
-}
-    </tbody>
-</table>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+</div>
